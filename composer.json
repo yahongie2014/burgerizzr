@@ -1,0 +1,109 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^7.1.3",
+        "adamcmoore/nova-gmap": "^1.0",
+        "alexbowers/nova-prepopulate-searchable": "^1.0",
+        "barryvdh/laravel-cors": "^0.11.2",
+        "berkayk/onesignal-laravel": "^1.0",
+        "beyondcode/nova-custom-dashboard-card": "^0.0.1",
+        "christophrumpel/nova-notifications": "^1.0",
+        "darryldecode/cart": "~4.0",
+        "davidpiesse/nova-map": "^0.0.4",
+        "dimsav/laravel-translatable": "^9.2",
+        "ebess/advanced-nova-media-library": "^1.2",
+        "eminiarts/nova-relationship-selector": "^0.1.1",
+        "fideloper/proxy": "^4.0",
+        "fourstacks/nova-checkboxes": "^0.1.2",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.6.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "halimtuhu/array-images": "dev-master",
+        "inani/laravel-nova-configuration": "^1.1",
+        "infinety-es/nova-filemanager": "^1.1",
+        "insenseanalytics/nova-bar-metrics": "^1.0",
+        "koss-shtukert/laravel-nova-select2-auto-complete": "^1.2",
+        "laracademy/model-generator": "^1.2",
+        "laravel/framework": "5.7.*",
+        "laravel/nova": "*",
+        "laravel/passport": "^7.0",
+        "laravel/tinker": "^1.0",
+        "llaski/nova-server-metrics": "^0.0.6",
+        "maatwebsite/laravel-nova-excel": "^1.1",
+        "michielkempen/nova-polymorphic-field": "^1.0",
+        "naif/cpanel-mail": "^1.2",
+        "naif/map_address": "^1.1",
+        "orlyapps/nova-belongsto-depend": "^0.0.6",
+        "r64/nova-image-cropper": "^1.0",
+        "runlinenl/nova-profile-tool": "^1.1",
+        "sentry/sentry-laravel": "^0.11.0",
+        "silvanite/novafieldcheckboxes": "^1.1",
+        "swooinc/nova-countdown": "^0.0.1",
+        "techouse/select-auto-complete": "^1.0",
+        "titasgailius/search-relations": "^1.0",
+        "vink/nova-cache-card": "^1.0",
+        "yeswedev/nova-translatable": "^0.5.0"
+    },
+    "require-dev": {
+        "beyondcode/laravel-dump-server": "^1.0",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^2.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ],
+        "post-install-cmd": [
+            "ln -sr storage/app/public public/storage",
+            "cd vendor && ln -s ../public/vendor/nova ."
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./nova"
+        }
+		],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
